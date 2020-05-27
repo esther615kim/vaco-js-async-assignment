@@ -1,5 +1,6 @@
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #e0f2f1;
 }
 
 h1 {
@@ -12,4 +13,27 @@ h1 {
   display: block;
   width: 240px;
   margin: 3em auto;
+}
+
+.quiz-list {
+  max-width: 600px;
+  margin: 4em auto 0;
+  list-style: none;
+}
+
+.quiz {
+  padding: 2em;
+  border-radius: 2px;
+  margin-bottom: 2em;
+  padding: 2em;
+  background-color: #ffffff;
+}
+
+.quiz > p {
+  margin: 0 0 2em;
+  font-weight: 500;
+}
+
+.quiz > label {
+  font-weight: 300;
 }
