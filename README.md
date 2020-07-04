@@ -36,8 +36,8 @@ $ npm run dev
 
 `npm run dev`를 실행해보시면 브라우저(`http://localhost:1234`)에 카드 퀴즈 UI와 테스트 결과가 나타납니다. 하지만 카드 퀴즈는 현재 저의 불찰로 망가진 상태입니다.
 
-- [ ] `/spec/01_parallel.spec.js`를 참고하여 `/app/async/01_parallel.js`의 parallel 함수의 내용을 완성해주세요.
-- [ ] `/spec/02_waterfall.spec.js`를 참고하여 `/app/async/02_waterfall.js`의 waterfall 함수의 내용을 완성해주세요.
+- [ ] `/spec/01_parallel.spec.js`를 참고하여 `/app/lib/async/01_parallel.js`의 parallel 함수의 내용을 완성해주세요.
+- [ ] `/spec/02_waterfall.spec.js`를 참고하여 `/app/lib/async/02_waterfall.js`의 waterfall 함수의 내용을 완성해주세요.
 
 성공적으로 완성된다면, 카드 퀴즈가 다시 잘 작동할 것입니다!
 

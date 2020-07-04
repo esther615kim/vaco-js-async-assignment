@@ -27,7 +27,7 @@ waterfall(
       appSpinner.render();
       callback();
     },
-    function getAllQuizList(callback) {
+    function getAllQuizList(_, callback) {
       getQuizIdList(callback);
     },
     function getQuizDetails(quizIdList, callback) {

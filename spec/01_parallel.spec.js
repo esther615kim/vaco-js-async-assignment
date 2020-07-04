@@ -2,7 +2,7 @@ describe("Parallel", function () {
   it("병렬적으로 비동기 작업을 진행해야 한다.", function (done) {
     const order = [];
 
-    async.parallel(
+    window.async.parallel(
       [
         function (callback) {
           setTimeout(function () {
@@ -32,7 +32,7 @@ describe("Parallel", function () {
   });
 
   it("작업 내용이 없을 경우 또한 대응해야 한다.", function (done) {
-    async.parallel([], function (results) {
+    window.async.parallel([], function (results) {
       expect(results).to.eql([]);
       done();
     });
