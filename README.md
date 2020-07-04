@@ -34,7 +34,7 @@ $ npm run dev
 
 ## TODO
 
-⛔️ `Promise`는 사용하지 마세요. ⛔️
+⛔️ `Promise`, `async`, `await`은 사용 불가입니다. ⛔️
 
 `npm run dev`를 실행해보시면 브라우저(`http://localhost:1234`)에 카드 퀴즈 UI와 테스트 결과가 나타납니다. 하지만 카드 퀴즈는 현재 저의 불찰로 망가진 상태입니다.
 
