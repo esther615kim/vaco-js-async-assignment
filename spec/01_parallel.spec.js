@@ -24,8 +24,13 @@ describe("Parallel", function () {
         },
       ],
       function (results) {
-        expect(order).to.eql([3, 1, 2]);
-        expect(results).to.eql([1, 2, 3]);
+        try {
+          expect(order).to.eql([3, 1, 2]);
+          expect(results).to.eql([1, 2, 3]);
+        } catch (e) {
+          return done(e);
+        }
+
         done();
       }
     );
@@ -33,7 +38,12 @@ describe("Parallel", function () {
 
   it("작업 내용이 없을 경우 또한 대응해야 한다.", function (done) {
     window.async.parallel([], function (results) {
-      expect(results).to.eql([]);
+      try {
+        expect(results).to.eql([]);
+      } catch (e) {
+        return done(e);
+      }
+
       done();
     });
   });
