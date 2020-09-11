@@ -7,19 +7,19 @@ describe("Waterfall", function () {
         function taskOne(callback) {
           setTimeout(function oneDone() {
             order.push(1);
-            callback(1);
+            callback("첫 번째 결과");
           }, 250);
         },
         function taskTwo(one, callback) {
-          expect(one).to.eql(1);
+          expect(one).to.eql("첫 번째 결과");
 
           setTimeout(function twoDone() {
             order.push(2);
-            callback(2);
+            callback("두 번째 결과");
           }, 100);
         },
         function taskThree(two, callback) {
-          expect(two).to.eql(2);
+          expect(two).to.eql("두 번째 결과");
 
           setTimeout(function threeDone() {
             order.push(3);
