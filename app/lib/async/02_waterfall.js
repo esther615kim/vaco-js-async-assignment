@@ -37,4 +37,20 @@
  *
  * Piece 👍🏻
  */
-export default function waterfall(tasks, finalCallback) {}
+
+export default function waterfall(tasks, finalCallback) {
+    var taskIndex = 0;
+
+    tasks.length || finalCallback();//Early 리턴과 변수 선언(61-62 줄) 중에 어떤 걸 먼저 쓸 지에 대해 코멘트 있으실까요
+
+    function callback(data) {
+        taskIndex++;
+
+        if (taskIndex === tasks.length)
+            return finalCallback();
+
+        tasks[taskIndex](data, callback);
+    }
+
+    tasks[taskIndex](callback);
+}

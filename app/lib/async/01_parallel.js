@@ -29,20 +29,42 @@
  *
  * Piece 👍🏻
  */
-//방법1 :수정중
+// //방법1 :수정중!! ..테스팅에서 걸립니다..
+// export default function parallel(tasks, finalCallback) {
+//     var finalResults = [];
+
+//     tasks.length || finalCallback(tasks);
+
+//     tasks.map((func) => {
+//         function callback(data) {
+//             finalResults.push(data);
+//             finalResults.length === Object.keys(tasks).length &&
+//                 finalCallback(finalResults);
+
+//             return data;
+//         }
+//         func(callback);
+//     });
+// }
+
+//방법2
 export default function parallel(tasks, finalCallback) {
-    var finalResults = [];
+    var finalResult = [];
+    var count = 0;
 
     tasks.length || finalCallback(tasks);
 
-    tasks.map((func) => {
-        function callback(data) {
-            finalResults.push(data);
-            finalResults.length === Object.keys(tasks).length &&
-                finalCallback(finalResults);
+    for (var i = 0; i < tasks.length; i++) {
 
-            return data;
+        function completeTasks(index) {
+
+            tasks[index](function (callback) {
+                finalResult[index] = callback;
+                count++;
+
+                (tasks.length === count) && finalCallback(finalResult)
+            });
         }
-        func(callback);
-    });
+        completeTasks(i);
+    }
 }
