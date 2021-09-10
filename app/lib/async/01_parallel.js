@@ -29,4 +29,20 @@
  *
  * Piece 👍🏻
  */
-export default function parallel(tasks, finalCallback) {}
+//방법1 :수정중
+export default function parallel(tasks, finalCallback) {
+    var finalResults = [];
+
+    tasks.length || finalCallback(tasks);
+
+    tasks.map((func) => {
+        function callback(data) {
+            finalResults.push(data);
+            finalResults.length === Object.keys(tasks).length &&
+                finalCallback(finalResults);
+
+            return data;
+        }
+        func(callback);
+    });
+}
