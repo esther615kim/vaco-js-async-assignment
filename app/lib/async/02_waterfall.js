@@ -41,7 +41,9 @@
 export default function waterfall(tasks, finalCallback) {
     var taskIndex = 0;
 
-    tasks.length || finalCallback();//Early 리턴과 변수 선언(61-62 줄) 중에 어떤 걸 먼저 쓸 지에 대해 코멘트 있으실까요
+    // tasks.length || finalCallback(); 이렇게 생각했다가(테스터는 통과합니다) 아래처럼 고쳤습니다. 
+    //early리턴이 아닌 것 같아서요 의견부탁드립니다.
+    if (!tasks.length) return finalCallback();
 
     function callback(data) {
         taskIndex++;
@@ -51,6 +53,5 @@ export default function waterfall(tasks, finalCallback) {
 
         tasks[taskIndex](data, callback);
     }
-
     tasks[taskIndex](callback);
 }

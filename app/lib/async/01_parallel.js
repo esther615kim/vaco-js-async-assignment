@@ -47,22 +47,20 @@
 //     });
 // }
 
-//방법2
+//방법2 질문: 58줄 1줄 띄우기 고민했습니다.
 export default function parallel(tasks, finalCallback) {
     var finalResult = [];
     var count = 0;
 
-    tasks.length || finalCallback(tasks);
+    if (!tasks.length) return finalCallback(tasks);
 
     for (var i = 0; i < tasks.length; i++) {
-
         function completeTasks(index) {
-
             tasks[index](function (callback) {
                 finalResult[index] = callback;
                 count++;
 
-                (tasks.length === count) && finalCallback(finalResult)
+                (tasks.length === count) && finalCallback(finalResult);
             });
         }
         completeTasks(i);
